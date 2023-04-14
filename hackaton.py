@@ -6,11 +6,12 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.svm import SVR
 from sklearn.model_selection import train_test_split
 from scipy.stats import pearsonr
+from sklearn.preprocessing import StandardScaler
 
 def read_csv(filename):
     return pd.read_csv(filename)
 
-def choose_model(algo)
+def choose_model(algo):
     if algo == knn:
         model = neighbors.KNeighborsRegressor(n_neighbors = K)
     elif algo == rf:
@@ -18,7 +19,6 @@ def choose_model(algo)
     elif algo == svm:
         model = SVR(kernel = "rbf")
     return model
-
 
 def linear_regression(df):
     model = linear_model.LinearRegression()
@@ -42,7 +42,7 @@ def linear_regression(df):
 
 
 def main():
-    filename = "/home/jrn1325/spring_hackaton/bio_features.csv"
+    filename = "./bio_features.csv"
     df = read_csv(filename)
     
     linear_regression(df)
